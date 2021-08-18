@@ -1,0 +1,16 @@
+[Unit]
+Description=LinuxGSM GMod Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+User=gmodserver
+WorkingDirectory=/home/gmodserver
+RemainAfterExit=yes   #Assume that the service is running after main process exits with code 0
+ExecStart=/home/gmodserver/gmodserver start
+ExecStop=/home/gmodserver/gmodserver stop
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
